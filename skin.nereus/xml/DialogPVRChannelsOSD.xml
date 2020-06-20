@@ -23,7 +23,7 @@
 					<movement>4</movement>
 					<focusposition>5</focusposition>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
-					<focusedlayout height="120" width="875">
+					<focusedlayout height="110" width="875">
 						<control type="image">
 							<left>0</left>
 							<right>0</right>
@@ -33,7 +33,7 @@
 						</control>
 						<control type="progress">
 							<left>105</left>
-							<top>65</top>
+							<top>75</top>
 							<width>50</width>
 							<height>12</height>
 							<midtexture border="3">progress/texturebg_white.png</midtexture>
@@ -107,9 +107,9 @@
 								<label>$INFO[ListItem.Plot]</label>
 								<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
 							</control>
-						</control>					
+						</control>	
 					</focusedlayout>
-					<itemlayout height="120" width="875">
+					<itemlayout height="110" width="875">
 
 						<control type="progress">
 							<left>120</left>
@@ -184,7 +184,7 @@
 				<control type="label" id="2">
 					<description>header label</description>
 					<textoffsetx>40</textoffsetx>
-					<right>0</right>
+					<right>240</right>
 					<width>830</width>
 					<height>70</height>
 					<font>font45</font>
