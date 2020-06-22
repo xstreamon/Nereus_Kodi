@@ -20,7 +20,7 @@
 			</control>
 			<control type="group">
 				<visible>!Window.IsVisible(videoosd) + !Window.IsVisible(musicosd)</visible>
-				<visible>Player.ShowInfo</visible>
+				<visible>Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.ShowInfo | Player.ShowTime | Window.IsActive(playerprocessinfo) | !String.IsEmpty(Player.SeekNumeric) | !String.IsEmpty(PVR.ChannelNumberInput)</visible>
 				<animation effect="fade" time="200">VisibleChange</animation>
 				<control type="image">
 					<left>200</left>
@@ -146,7 +146,7 @@
 		</control>
 		<control type="group">
 			<visible>!Window.IsVisible(playerprocessinfo)</visible>
-			<visible>Player.ShowInfo</visible>
+			<visible>Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.ShowInfo | Player.ShowTime | Window.IsActive(playerprocessinfo) | !String.IsEmpty(Player.SeekNumeric) | !String.IsEmpty(PVR.ChannelNumberInput)</visible>
 			<animation effect="fade" time="400">VisibleChange</animation>
 			<animation effect="slide" end="0,-20" time="150" condition="VideoPlayer.Content(LiveTV)">conditional</animation>
 			<bottom>-38</bottom>
@@ -207,28 +207,6 @@
 				<left>373</left>
 				<right>0</right>
 			</control>
-<!-- Plot
-			<control type="textbox">
-				<left>260</left>
-				<top>90</top>
-				<right>30</right>
-				<height>80</height>
-				<label fallback="19055">$INFO[VideoPlayer.Plot]</label>
-				<align>justify</align>
-				<autoscroll delay="5000" repeat="7500" time="5000"></autoscroll>
-				<visible>String.IsEmpty(PVR.EpgEventIcon)</visible>
-			</control>
-			<control type="textbox">
-				<left>260</left>
-				<top>90</top>
-				<right>260</right>
-				<height>80</height>
-				<label fallback="19055">$INFO[VideoPlayer.Plot]</label>
-				<align>justify</align>
-				<autoscroll delay="5000" repeat="7500" time="5000"></autoscroll>
-				<visible>!String.IsEmpty(PVR.EpgEventIcon)</visible>
-			</control>
--->
 			<control type="image">
 				<right>30</right>
 				<top>20</top>
@@ -257,8 +235,8 @@
 		<!-- Timeshift -->
 		<control type="group">
 			<animation effect="fade" time="400">VisibleChange</animation>
-			<visible>!Player.ChannelPreviewActive</visible>
-			<visible>Player.ShowInfo</visible>
+			<visible>Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.ShowInfo | Player.ShowTime | Window.IsActive(playerprocessinfo) | !String.IsEmpty(Player.SeekNumeric) | !String.IsEmpty(PVR.ChannelNumberInput)</visible>
+			
 			<control type="group">
 				<visible>Player.SeekEnabled | VideoPlayer.HasEPG</visible>
 				<control type="label">
@@ -330,7 +308,7 @@
 		</control>
 		<control type="group">
 			<animation effect="fade" time="400">VisibleChange</animation>
-			<visible>Player.ShowInfo</visible>
+			<visible>Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.ShowInfo | Player.ShowTime | Window.IsActive(playerprocessinfo) | !String.IsEmpty(Player.SeekNumeric) | !String.IsEmpty(PVR.ChannelNumberInput)</visible>
 			<visible>Player.ChannelPreviewActive</visible>
 			<control type="progress">
 				<left>280</left>
@@ -344,8 +322,8 @@
 		</control>
 		<control type="group" id="6001">
 			<visible>!Window.IsVisible(playerprocessinfo)</visible>
-			<visible>Player.ShowInfo</visible>
-			<visible>Player.SeekEnabled</visible>
+			<visible>Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.ShowInfo | Player.ShowTime | Window.IsActive(playerprocessinfo) | !String.IsEmpty(Player.SeekNumeric) | !String.IsEmpty(PVR.ChannelNumberInput)</visible>
+			
 			<control type="button" id="87">
 				<include>HiddenObject</include>
 				<onup>200</onup>
@@ -394,4 +372,3 @@
 		</control>
 	</controls>
 </window>
-
