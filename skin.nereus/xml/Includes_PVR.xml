@@ -520,4 +520,22 @@
 			</control>
 		</definition>
 	</include>
+
+	<include name="PVRInfoPanelsmall">
+		<control type="group">
+			<control type="label">
+				<top>435</top>
+				<width>830</width>
+				<height>70</height>
+				<label>[I]$VAR[SeasonEpisodeLabel]$INFO[ListItem.EpisodeName][/I]</label>
+			</control>
+			<control type="textbox">
+				<top>490</top>
+				<width>830</width>
+				<bottom>75</bottom>
+				<label>$INFO[ListItem.Plot]</label>
+				<autoscroll delay="10000" time="3000" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
+			</control>
+		</control>
+	</include>
 </includes>
