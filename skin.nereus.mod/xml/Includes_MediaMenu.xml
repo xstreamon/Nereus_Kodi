@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
 	<include name="MediaMenuItemsCommon">
-		<width>520</width>
+		<width>470</width>
 		<textoffsetx>20</textoffsetx>
 		<top>0</top>
 		<height>80</height>
@@ -9,35 +9,10 @@
 		<aligny>center</aligny>
 		<invalidcolor>invalid</invalidcolor>
 		<texturefocus colordiffuse="button_focus">lists/focus.png</texturefocus>
-		<texturenofocus/>
+		<texturenofocus />
 		<alttexturefocus colordiffuse="button_focus">lists/focus.png</alttexturefocus>
 		<alttexturenofocus></alttexturenofocus>
 	</include>
-  <include name="MediaMenuCommonBackground">
-  <control type="image">
-    <left>0</left>
-    <top>0</top>
-    <width>450</width>
-    <height>1080</height>
-    <texture>lists/home-menu-background.png</texture>
-  </control>
-  <control type="image">
-    <left>320</left>
-    <right>-40</right>
-    <top>0</top>
-    <width>246</width>
-    <height>1080</height>
-    <texture>lists/home-menu-glow.png</texture>
-  </control>
-  <control type="image">
-    <left>320</left>
-    <right>-40</right>
-    <top>0</top>
-    <width>258</width>
-    <height>1080</height>
-    <texture>lists/home-menu-background.png</texture>
-  </control>
-  </include>
 	<include name="PVRQuickNavItemsCommon">
 		<param name="height">110</param>
 		<definition>
@@ -74,7 +49,7 @@
 			<control type="grouplist" id="9000">
 				<top>50</top>
 				<left>0</left>
-				<width>520</width>
+				<width>470</width>
 				<height>100%</height>
 				<onleft>9000</onleft>
 				<onup>9000</onup>
@@ -88,7 +63,7 @@
 						<label>$LOCALIZE[31063]</label>
 					</control>
 					<control type="label">
-						<width>500</width>
+						<width>470</width>
 						<textoffsetx>20</textoffsetx>
 						<textoffsety>15</textoffsety>
 						<height>50</height>
@@ -277,9 +252,9 @@
 		<include>OpenClose_Left</include>
 		<depth>DepthSideBlade</depth>
 		<left>-520</left>
-    <!--animation type="Conditional" condition="$EXP[sidebar_visible]" reversible="true">
+		<animation type="Conditional" condition="$EXP[sidebar_visible]" reversible="true">
 			<effect type="slide" start="0" end="520" time="400" tween="cubic" easing="out" />
-		</animation-->
+		</animation>
 		<control type="image">
 			<width>4000</width>
 			<height>100%</height>
@@ -358,7 +333,7 @@
 		<definition>
 			<left>0</left>
 			<top>100</top>
-			<width>520</width>
+			<width>470</width>
 			<height>100%</height>
 			<onleft>9000</onleft>
 			<onup>9000</onup>

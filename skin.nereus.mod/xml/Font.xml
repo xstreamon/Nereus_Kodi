@@ -69,6 +69,7 @@
 			<filename>Roboto-Thin.ttf</filename>
 			<size>70</size>
 		</font>
+		<include>RegularModFonts</include>
 		<!-- Title Fonts -->
 		<font>
 			<name>font_flag</name>
@@ -182,6 +183,7 @@
 			<size>70</size>
 			<style>lighten</style>
 		</font>
+		<include>ArialModFonts</include>
 		<!-- Title Fonts -->
 		<font>
 			<name>font_flag</name>

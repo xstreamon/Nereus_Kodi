@@ -8,9 +8,6 @@
 		<include>DefaultBackground</include>
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
-      <animation type="Conditional" condition="$EXP[sidebar_visible]" reversible="true">
-        <effect type="slide" start="0" end="520" time="600" tween="sine" easing="out" />
-      </animation>
 			<include>View_50_List</include>
 			<include>View_51_Poster</include>
 			<include>View_52_IconWall</include>
@@ -20,95 +17,56 @@
 			<include>View_500_Wall</include>
 			<include>View_501_Banner</include>
 			<include>View_502_FanArt</include>
-
-      <!--###########################################################################################################-->
-      <!--########################################### MEDIA ITEM DETAILS ############################################-->
-      <!--###########################################################################################################-->
-
-      <!--<<<<<<<<<<<<<<<<<<<<<<<<<<< Info Wall >>>>>>>>>>>>>>>>>>>>>>>>>>>>>-->
-      <control type="group">
-        <left>880r</left>
+			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
 				<visible>Control.IsVisible(55)</visible>
 				<include>Visible_Left</include>
 				<include>ListThumbInfoPanel</include>
 			</control>
-
-      <!--<<<<<<<<<<<<<<<<<<<<< Others than Info Wall >>>>>>>>>>>>>>>>>>>>>>>-->
-      <control type="group">
+			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
-        <left>880r</left>
 				<visible>Control.IsVisible(50) | Control.Isvisible(54) | [Control.IsVisible(501) + String.IsEqual(Skin.AspectRatio,21:9)]</visible>
 				<include>Visible_Left</include>
-        <control type="image">
-          <left>-48</left>
-          <top>0</top>
-          <width>30</width>
-          <height>100%</height>
-          <texture>lists/ContentGlow.png</texture>
-        </control>
 				<include content="ContentPanel">
-					<param name="width" value="940" />
+					<param name="width" value="656" />
 				</include>
 				<control type="group">
-          <width>800</width>
-          <control type="image">
-            <left>-20</left>
-            <right>0</right>
-            <top>10</top>
-            <width>920</width>
-            <height>550</height>
-            <fadetime>300</fadetime>
-            <texture border="2" fallback="special://skin/extras/home-images/movie.jpg" >$VAR[FanartImageVar]</texture>
-            <aspectratio align="stretch" aligny="top">scale</aspectratio>
-          </control>
-          <control type="image">
-            <left>-20</left>
-            <right>0</right>
-            <top>10</top>
-            <width>920</width>
-            <height>100%</height>
-            <texture border="2">overlays/List_overlay.png</texture>
-            <aspectratio align="stretch" aligny="top">scale</aspectratio>
-          </control>
-          <control type="group">
-            <top>120</top>
-            <control type="textbox">
-              <top>120</top>
-              <left>30</left>
-              <width>800</width>
-              <aligny>center</aligny>
-              <height>110</height>
-              <font>font36_title</font>
-              <label>$INFO[ListItem.Label]</label>
-            </control>
-            <control type="textbox">
-              <left>30</left>
-              <top>240</top>
-              <width>800</width>
-              <bottom>100</bottom>
-              <visible>![ListItem.IsCollection + String.IsEmpty(ListItem.Plot)]</visible>
-              <label>$INFO[ListItem.Tagline,[I],[/I][CR][CR]]$INFO[ListItem.Plot][CR][CR]</label>
-              <autoscroll delay="10000" time="3000" repeat="10000">Skin.HasSetting(autoscroll)</autoscroll>
-            </control>
-            <control type="textbox">
-              <left>30</left>
-              <top>360</top>
-              <width>800</width>
-              <height>413</height>
-              <align>center</align>
-              <aligny>center</aligny>
-              <font>font27</font>
-              <textcolor>80FFFFFF</textcolor>
-              <label>$LOCALIZE[19055]</label>
-              <visible>String.IsEmpty(Listitem.Plot) + String.IsEmpty(Listitem.Tagline) + !ListItem.IsCollection + !ListItem.IsParentFolder</visible>
-            </control>
-          </control>
+					<width>550</width>
+					<control type="textbox">
+						<top>120</top>
+						<left>30</left>
+						<width>550</width>
+						<aligny>center</aligny>
+						<height>110</height>
+						<font>font36_title</font>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="textbox">
+						<left>30</left>
+						<top>240</top>
+						<width>525</width>
+						<bottom>100</bottom>
+						<visible>![ListItem.IsCollection + String.IsEmpty(ListItem.Plot)]</visible>
+						<label>$INFO[ListItem.Tagline,[I],[/I][CR][CR]]$INFO[ListItem.Plot][CR][CR]</label>
+						<autoscroll delay="10000" time="3000" repeat="10000">Skin.HasSetting(autoscroll)</autoscroll>
+					</control>
+					<control type="textbox">
+						<left>30</left>
+						<top>360</top>
+						<width>530</width>
+						<height>413</height>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>font27</font>
+						<textcolor>80FFFFFF</textcolor>
+						<label>$LOCALIZE[19055]</label>
+						<visible>String.IsEmpty(Listitem.Plot) + String.IsEmpty(Listitem.Tagline) + !ListItem.IsCollection + !ListItem.IsParentFolder</visible>
+					</control>
 					<control type="group">
 						<left>20</left>
-						<top>345</top>
+						<top>245</top>
 						<visible>ListItem.IsCollection + String.IsEmpty(ListItem.Plot)</visible>
 						<include content="InfoList">
 							<param name="bottom" value="108" />
@@ -120,48 +78,12 @@
 					</control>
 				</control>
 			</control>
-
-      <!--###########################################################################################################-->
-      <!--#################################### TOP AND BOTTOM GRADIENT OVERLAY ######################################-->
-      <!--###########################################################################################################-->
-
-      <control type="image">
-        <left>0</left>
-        <top>0</top>
-        <aspectratio>stretch</aspectratio>
-        <width>100%</width>
-        <height>100</height>
-        <aligny>top</aligny>
-        <texture colordiffuse="EEFFFFFF">overlays/overlayfade_mirrored.png</texture>
-      </control>
-      <control type="image">
-        <left>0</left>
-        <bottom>0</bottom>
-        <aspectratio>stretch</aspectratio>
-        <width>100%</width>
-        <height>110</height>
-        <aligny>bottom</aligny>
-        <texture colordiffuse="EEFFFFFF">overlays/overlayfade.png</texture>
-      </control>
-
-      <include>BottomBar</include>
-      <control type="group">
-        <depth>DepthBars</depth>
-        <left>0</left>
-        <bottom>0</bottom>
-        <height>70</height>
-        <include condition="!Skin.HasSetting(hide_mediaflags)" content="TitleFlags">
-          <param name="infolabel_prefix" value="Container." />
-          <param name="resolution_var" value="$VAR[ContainerResolutionFlagVar]" />
-        </include>
-      </control>
-      
 			<include content="TopBar">
 				<param name="breadcrumbs_label" value="$VAR[BreadcrumbsVideoVar]" />
 			</include>
-      <!--include content="BottomBar">
+			<include content="BottomBar">
 				<param name="info_visible" value="true" />
-			</include-->
+			</include>
 			<control type="group">
 				<depth>DepthBars</depth>
 				<bottom>0</bottom>
@@ -174,7 +96,6 @@
 			<include>MediaMenuMouseOverlay</include>
 			<control type="group">
 				<include>MediaMenuCommon</include>
-        <include>MediaMenuCommonBackground</include>        
 				<control type="grouplist" id="9000">
 					<top>50</top>
 					<include>MediaMenuListCommon</include>
@@ -245,14 +166,6 @@
 						<onclick>Addon.OpenSettings($INFO[Container.PluginName])</onclick>
 						<visible>!String.IsEmpty(Container.PluginName)</visible>
 					</control>
-          <control type="radiobutton" id="802">
-            <description>alternatve Genre Icons</description>
-            <include>MediaMenuItemsCommon</include>
-            <label>Show Genre Images</label>
-            <onclick>Skin.ToggleSetting(alternative_genreicons)</onclick>
-            <selected>Skin.HasSetting(alternative_genreicons)</selected>
-            <visible>Container.Content(genres) + Control.isvisible(52)</visible>
-          </control>
 					<include>MediaMenuNowPlaying</include>
 				</control>
 			</control>

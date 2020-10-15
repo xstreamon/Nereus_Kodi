@@ -5,7 +5,7 @@
 		<height>100%</height>
 		<scrolltime tween="cubic" easing="out">500</scrolltime>
 		<itemgap>-160</itemgap>
-		<onup>700</onup>
+		<onup>20000</onup>
 		<ondown>20001</ondown>
 		<usecontrolcoords>true</usecontrolcoords>
 	</include>
@@ -141,7 +141,6 @@
 						<onleft>9000</onleft>
 						<control type="button" id="$PARAM[button_id]">
 							<width>auto</width>
-              <onup>700</onup>
 							<height>110</height>
 							<label>$PARAM[button_label]</label>
 							<textoffsetx>40</textoffsetx>
@@ -154,7 +153,6 @@
 						<control type="button" id="$PARAM[button_id]568">
 							<width>auto</width>
 							<height>110</height>
-              <onup>700</onup>
 							<label>$PARAM[button2_label]</label>
 							<textoffsetx>40</textoffsetx>
 							<onclick>$PARAM[button2_onclick]</onclick>
@@ -167,7 +165,6 @@
 						<control type="button" id="$PARAM[button_id]569">
 							<width>auto</width>
 							<height>110</height>
-              <onup>700</onup>
 							<label>$PARAM[button3_label]</label>
 							<textoffsetx>40</textoffsetx>
 							<onclick>$PARAM[button3_onclick]</onclick>
@@ -203,159 +200,42 @@
 				<left>0</left>
 				<top>105</top>
 				<right>0</right>
-				<height>350</height>
+				<height>410</height>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
 				<visible>$PARAM[visible]</visible>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
-        
-				<itemlayout width="310" height="350">
+				<itemlayout width="310" height="500">
 					<control type="group">
 						<left>70</left>
 						<top>5</top>
-            <control type="image">
-              <width>316</width>
-              <height>245</height>
-              <texture>dialogs/dialog-bg-nobo.png</texture>
-              <bordertexture border="21">overlays/shadow.png</bordertexture>
-              <bordersize>20</bordersize>
-              <align>center</align>
-            </control>
-            <control type="image">
-              <bordersize>20</bordersize>
-              <width>316</width>
-              <height>245</height>
-              <texture fallback="$PARAM[fallback_image]" background="true">$VAR[InfoWallThumbVar]</texture>
-              <aspectratio>scale</aspectratio>
-              <align>center</align>
-            </control>
-            <control type="image">
-              <left>20</left>
-              <top>155</top>
-              <width>277</width>
-              <height>70</height>
-              <texture>overlays/overlayfade.png</texture>
-            </control>
-            <control type="label">
-              <left>31</left>
-              <top>192</top>
-              <width>260</width>
-              <label>$PARAM[thumb_label]</label>
-              <font>font20_title</font>
-              <shadowcolor>text_shadow</shadowcolor>
-              <align>right</align>
-            </control>
-            <control type="progress">
-              <left>21</left>
-              <top>190</top>
-              <width>316</width>
-              <height>1</height>
-              <texturebg></texturebg>
-              <midtexture colordiffuse="button_focus" border="3">progress/texturebg_alt_white.png</midtexture>
-              <info>ListItem.PercentPlayed</info>
-              <visible>!Integer.IsEqual(ListItem.PercentPlayed,0)</visible>
-            </control>
-            <control type="progress">
-              <left>21</left>
-              <top>193</top>
-              <width>316</width>
-              <height>1</height>
-              <texturebg></texturebg>
-              <midtexture colordiffuse="button_focus" border="3">progress/texturebg_alt_white.png</midtexture>
-              <info>ListItem.PercentPlayed</info>
-              <visible>!Integer.IsEqual(ListItem.PercentPlayed,0)</visible>
-            </control>
-            <control type="group">
-              <left>134</left>
-              <top>8</top>
-              <include condition="Skin.HasSetting(circle_rating) | Skin.HasSetting(circle_userrating)">RatingCircle</include>
-            </control>
+						<include content="InfoWallEpisodeLayout">
+							<param name="main_label" value="$PARAM[main_label]" />
+							<param name="sub_label" value="$PARAM[sub_label]" />
+							<param name="thumb_label" value="$PARAM[thumb_label]" />
+							<param name="focused" value="false" />
+						</include>
 					</control>
 				</itemlayout>
-        
-				<focusedlayout width="310" height="350">
-          <control type="group">
-            <depth>DepthContentPopout</depth>
-            <left>70</left>
-            <top>5</top>
-            <animation type="Focus">
-              <effect type="zoom" start="100" end="112" time="200" tween="sine" easing="inout" center="195,115" />
-            </animation>
-            <animation type="Unfocus">
-              <effect type="zoom" start="112" end="100" time="200" tween="sine" easing="inout" center="195,115" />
-            </animation>
-            <control type="image">
-              <left>-4</left>
-              <top>-4</top>
-              <width>324</width>
-              <height>253</height>
-              <texture>dialogs/dialog-bg-nobo.png</texture>
-              <bordertexture border="21">overlays/shadow.png</bordertexture>
-              <include>Animation_FocusTextureFade</include>
-              <align>center</align>
-              <bordersize>20</bordersize>
-            </control>
-            <control type="image">
-              <left>-4</left>
-              <top>-4</top>
-              <width>324</width>
-              <height>253</height>
-              <texture colordiffuse="white">colors/white.png</texture>
-              <bordersize>20</bordersize>
-              <align>center</align>
-              <include>Animation_FocusTextureFade</include>
-            </control>
-            <control type="image">
-              <bordersize>20</bordersize>
-              <width>316</width>
-              <height>245</height>
-              <texture fallback="$PARAM[fallback_image]" background="true">$VAR[InfoWallThumbVar]</texture>
-              <aspectratio>scale</aspectratio>
-              <align>center</align>
-            </control>
-            <control type="image">
-              <left>20</left>
-              <top>155</top>
-              <width>277</width>
-              <height>70</height>
-              <texture>overlays/overlayfade.png</texture>
-            </control>
-            <control type="label">
-              <left>31</left>
-              <top>192</top>
-              <width>260</width>
-              <label>$PARAM[thumb_label]</label>
-              <font>font20_title</font>
-              <shadowcolor>text_shadow</shadowcolor>
-              <align>right</align>
-            </control>
-            <control type="progress">
-              <left>20.5</left>
-              <top>189</top>
-              <width>316</width>
-              <height>1</height>
-              <texturebg></texturebg>
-              <midtexture colordiffuse="button_focus" border="3">progress/texturebg_alt_white.png</midtexture>
-              <info>ListItem.PercentPlayed</info>
-              <visible>!Integer.IsEqual(ListItem.PercentPlayed,0)</visible>
-            </control>
-            <control type="progress">
-              <left>20.5</left>
-              <top>192</top>
-              <width>316</width>
-              <height>1</height>
-              <texturebg></texturebg>
-              <midtexture colordiffuse="button_focus" border="3">progress/texturebg_alt_white.png</midtexture>
-              <info>ListItem.PercentPlayed</info>
-              <visible>!Integer.IsEqual(ListItem.PercentPlayed,0)</visible>
-            </control>
-            <control type="group">
-              <left>134</left>
-              <top>8</top>
-              <include condition="Skin.HasSetting(circle_rating) | Skin.HasSetting(circle_userrating)">RatingCircle</include>
-            </control>
-          </control>
+				<focusedlayout width="310" height="500">
+					<control type="group">
+						<depth>DepthContentPopout</depth>
+						<left>70</left>
+						<top>5</top>
+						<animation type="Focus">
+							<effect type="zoom" start="100" end="112" time="200" tween="sine" easing="inout" center="230,120" />
+						</animation>
+						<animation type="Unfocus">
+							<effect type="zoom" start="112" end="100" time="200" tween="sine" easing="inout" center="230,120" />
+						</animation>
+						<include content="InfoWallEpisodeLayout">
+							<param name="main_label" value="$PARAM[main_label]" />
+							<param name="sub_label" value="$PARAM[sub_label]" />
+							<param name="thumb_label" value="$PARAM[thumb_label]" />
+							<param name="focused" value="true" />
+						</include>
+					</control>
 				</focusedlayout>
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[widget_limit]">$PARAM[content_path]</content>
 			</control>
@@ -455,17 +335,10 @@
 						<control type="image">
 							<width>316</width>
 							<height>200</height>
-							<texture>dialogs/dialog-bg-nobo-grey.png</texture>
+							<texture>dialogs/dialog-bg-nobo.png</texture>
 							<bordertexture border="21">overlays/shadow.png</bordertexture>
 							<bordersize>20</bordersize>
 						</control>
-            <control type="image">
-              <left>20</left>
-              <top>110</top>
-              <width>276</width>
-              <height>70</height>
-              <texture colordiffuse="4DFFFFFF">overlays/overlayfade.png</texture>
-            </control>
 						<control type="image">
 							<centertop>74</centertop>
 							<left>58</left>
@@ -500,14 +373,14 @@
 						<control type="image">
 							<width>316</width>
 							<height>200</height>
-							<texture>dialogs/dialog-bg-nobo-grey.png</texture>
+							<texture>dialogs/dialog-bg-nobo.png</texture>
 							<bordertexture border="21">overlays/shadow.png</bordertexture>
 							<bordersize>20</bordersize>
 						</control>
 						<control type="image">
 							<width>316</width>
 							<height>200</height>
-							<texture colordiffuse="4BFFFFFF">colors/grey.png</texture>
+							<texture colordiffuse="button_focus">colors/grey.png</texture>
 							<bordersize>20</bordersize>
 							<include>Animation_FocusTextureFade</include>
 						</control>
@@ -519,13 +392,6 @@
 							<texture fallback="DefaultFolder.png">$PARAM[icon]</texture>
 							<aspectratio>keep</aspectratio>
 						</control>
-            <control type="image">
-              <left>20</left>
-              <top>110</top>
-              <width>276</width>
-              <height>70</height>
-              <texture colordiffuse="4DFFFFFF">overlays/overlayfade.png</texture>
-            </control>
 						<control type="textbox">
 							<left>38</left>
 							<top>106</top>
@@ -550,153 +416,6 @@
 			</control>
 		</definition>
 	</include>
-  
-  <include name="WidgetListGenres">
-    <param name="item_limit">20</param>
-    <param name="icon">$INFO[ListItem.Icon]</param>
-    <param name="icon_height">120</param>
-    <param name="pvr_submenu">false</param>
-    <param name="pvr_type">TV</param>
-    <param name="visible">true</param>
-    <definition>
-      <include content="CategoryLabel">
-        <param name="label">$PARAM[widget_header]</param>
-        <param name="list_id" value="$PARAM[list_id]"/>
-        <param name="visible" value="$PARAM[visible]"/>
-      </include>
-      <include content="BusyListSpinner">
-        <param name="list_id" value="$PARAM[list_id]"/>
-        <param name="visible" value="$PARAM[visible]"/>
-      </include>
-      <control type="panel" id="$PARAM[list_id]">
-        <left>0</left>
-        <top>110</top>
-        <right>0</right>
-        <height>290</height>
-        <include content="WidgetListCommon">
-          <param name="list_id" value="$PARAM[list_id]"/>
-        </include>
-        <visible>$PARAM[visible]</visible>
-        <visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
-        <itemlayout width="310" height="340">
-          <control type="group">
-            <left>70</left>
-            <control type="image">
-              <width>316</width>
-              <height>200</height>
-              <texture>dialogs/dialog-bg-nobo-grey.png</texture>
-              <bordertexture border="21">overlays/shadow.png</bordertexture>
-              <bordersize>20</bordersize>
-            </control>
-            <control type="image">
-              <width>316</width>
-              <height>200</height>
-              <texture fallback="special://skin/extras/genre-images/video/Default.jpg">$VAR[genre_poster]</texture>
-              <aspectratio>stretch</aspectratio>
-              <bordersize>20</bordersize>
-            </control>
-            <control type="image">
-              <left>20</left>
-              <top>110</top>
-              <width>276</width>
-              <height>70</height>
-              <texture colordiffuse="FFFFFFFF">overlays/overlayfade.png</texture>
-            </control>
-            <control type="textbox">
-              <left>38</left>
-              <top>126</top>
-              <width>240</width>
-              <height>50</height>
-              <label>$INFO[ListItem.Label]</label>
-              <font>font25_narrow</font>
-              <shadowcolor>text_shadow</shadowcolor>
-              <align>center</align>
-              <aligny>center</aligny>
-            </control>
-          </control>
-        </itemlayout>
-        <focusedlayout width="310" height="340">
-          <control type="group">
-            <depth>DepthContentPopout</depth>
-            <left>70</left>
-            <animation type="Focus">
-              <effect type="zoom" start="100" end="115" time="200" tween="sine" easing="inout" center="228,70" />
-            </animation>
-            <animation type="Unfocus">
-              <effect type="zoom" start="115" end="100" time="200" tween="sine" easing="inout" center="228,70" />
-            </animation>
-            <control type="image">
-              <left>-4</left>
-              <top>-4</top>
-              <width>324</width>
-              <height>208</height>
-              <texture>dialogs/dialog-bg-nobo-grey.png</texture>
-              <bordertexture border="21">overlays/shadow.png</bordertexture>
-              <bordersize>20</bordersize>
-            </control>
-            <control type="image">
-              <left>-4</left>
-              <top>-4</top>
-              <width>324</width>
-              <height>208</height>
-              <texture colordiffuse="white">colors/white.png</texture>
-              <bordersize>20</bordersize>
-              <align>center</align>
-              <include>Animation_FocusTextureFade</include>
-            </control>
-            <control type="image">
-              <width>316</width>
-              <height>200</height>
-              <texture>dialogs/dialog-bg-nobo-grey.png</texture>
-              <bordertexture border="21">overlays/shadow.png</bordertexture>
-              <bordersize>20</bordersize>
-            </control>
-            <control type="image">
-              <width>316</width>
-              <height>200</height>
-              <texture colordiffuse="4BFFFFFF">colors/grey.png</texture>
-              <bordersize>20</bordersize>
-              <include>Animation_FocusTextureFade</include>
-            </control>
-            <control type="image">
-              <width>316</width>
-              <height>200</height>
-              <texture fallback="special://skin/extras/genre-images/video/Default.jpg">$VAR[genre_poster]</texture>
-              <aspectratio>stretch</aspectratio>
-              <bordersize>20</bordersize>
-            </control>
-            <control type="image">
-              <left>20</left>
-              <top>110</top>
-              <width>276</width>
-              <height>70</height>
-              <texture colordiffuse="FFFFFFFF">overlays/overlayfade.png</texture>
-            </control>
-            <control type="textbox">
-              <left>38</left>
-              <top>126</top>
-              <width>240</width>
-              <height>50</height>
-              <label>$INFO[ListItem.Label]</label>
-              <font>font25_narrow</font>
-              <shadowcolor>text_shadow</shadowcolor>
-              <align>center</align>
-              <aligny>center</aligny>
-            </control>
-          </control>
-        </focusedlayout>
-        <include condition="!$PARAM[pvr_submenu]" content="SubmenuContent">
-          <param name="widget_target" value="$PARAM[widget_target]"/>
-          <param name="item_limit" value="$PARAM[item_limit]"/>
-          <param name="content_path" value="$PARAM[content_path]"/>
-        </include>
-        <include condition="$PARAM[pvr_submenu]" content="PVRSubMenuContent">
-          <param name="pvr_type" value="$PARAM[pvr_type]"/>
-        </include>
-      </control>
-    </definition>
-  </include>
-  
 	<include name="SubmenuContent">
 		<content target="$PARAM[widget_target]" limit="$PARAM[item_limit]">$PARAM[content_path]</content>
 	</include>
@@ -731,6 +450,30 @@
 				<label>$LOCALIZE[137]</label>
 				<onclick>ActivateWindow($PARAM[pvr_type]Search)</onclick>
 				<thumb>DefaultAddonsSearch.png</thumb>
+			</item>
+			<item>
+				<label>X-NEWA</label>
+				<onclick>RunScript(script.xbmc.x-newa)</onclick>
+				<thumb>DefaultNetwork.png</thumb>
+				<visible>System.HasAddon(script.xbmc.x-newa)</visible>
+			</item>
+			<item>
+				<label>New NextPVR Client (Obsolete)</label>
+				<onclick>RunScript(script.kodi.knew4v5)</onclick>
+				<thumb>DefaultNetwork.png</thumb>
+				<visible>System.HasAddon(script.kodi.knew4v5)</visible>
+			</item>
+			<item>
+				<label>New NextPVR Client</label>
+				<onclick>RunScript(script.kodi.knewc)</onclick>
+				<thumb>DefaultNetwork.png</thumb>
+				<visible>System.HasAddon(script.kodi.knewc)</visible>
+			</item>
+			<item>
+				<label>PseudoLibrary</label>
+				<onclick>RunScript(script.pseudo.library)</onclick>
+				<thumb>DefaultVCD.png</thumb>
+				<visible>System.HasAddon(script.pseudo.library)</visible>
 			</item>
 		</content>
 	</include>
@@ -910,6 +653,18 @@
 							<width>130</width>
 							<height>130</height>
 							<texture>$INFO[ListItem.Icon]</texture>
+							<visible>!String.IsEqual(Skin.String(WeatherIcons.name),Weather Icons - HD Animated) + !String.IsEqual(Skin.String(WeatherIcons.name),Weather Icons - Cloud Animated) + !String.IsEqual(Skin.String(WeatherIcons.name),Weather Icons - Animated)</visible>
+						</control>
+						<control type="multiimage">
+							<left>60</left>
+							<top>113</top>
+							<width>120</width>
+							<height>120</height>
+							<imagepath>$INFO[ListItem.Icon]</imagepath>
+							<timeperimage>110</timeperimage>
+							<randomize>false</randomize>
+							<fadetime>5</fadetime>
+							<visible>String.IsEqual(Skin.String(WeatherIcons.name),Weather Icons - HD Animated) | String.IsEqual(Skin.String(WeatherIcons.name),Weather Icons - Cloud Animated) | String.IsEqual(Skin.String(WeatherIcons.name),Weather Icons - Animated)</visible>
 						</control>
 						<control type="label">
 							<left>15</left>
@@ -1097,26 +852,70 @@
 			<property name="Temperature">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Temperature)]</property>
 			<property name="Outlook">$INFO[Window(weather).Property(Hourly.$PARAM[item_id].Outlook)]</property>
 			<property name="Cloudiness">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Cloudiness)]</property>
-			<property name="ShortDate">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].ShortDate)]</property>
+			<property name="ShortDate">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].LongDate)]</property>
 			<property name="FanartCode">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].FanartCode)]</property>
 			<thumb>resource://resource.images.weathericons.default/$INFO[Window(weather).Property(Hourly.$PARAM[item_index].OutlookIcon)]</thumb>
-			<onclick>noop</onclick>
-			<visible>!String.IsEmpty(Window(weather).Property(Hourly.$PARAM[item_index].Outlook))</visible>
+			<visible>!String.IsEmpty(Window(weather).Property(Hourly.$PARAM[item_index].Outlook)) + !String.IsEmpty(Window(weather).Property(Hourly.$PARAM[item_index].FanartCode)) + String.IsEmpty(Skin.String(WeatherIcons.name))</visible>
+		</item>
+		<item>
+			<label>$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Time)]</label>
+			<label2>$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Temperature)] ∙ $INFO[Window(weather).Property(Hourly.$PARAM[item_index].Precipitation)]</label2>
+			<property name="Temperature">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Temperature)]</property>
+			<property name="Outlook">$INFO[Window(weather).Property(Hourly.$PARAM[item_id].Outlook)]</property>
+			<property name="Cloudiness">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Cloudiness)]</property>
+			<property name="ShortDate">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].LongDate)]</property>
+			<property name="FanartCode">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].FanartCode)]</property>
+			<thumb>$INFO[Skin.String(WeatherIcons.path)]$INFO[Window(weather).Property(Hourly.$PARAM[item_index].OutlookIcon)]</thumb>
+			<visible>![String.IsEqual(Skin.String(WeatherIcons.name),Weather Icons - HD Animated) | String.IsEqual(Skin.String(WeatherIcons.name),Weather Icons - Cloud Animated) | String.IsEqual(Skin.String(WeatherIcons.name),Weather Icons - Animated)] + !String.IsEmpty(Window(weather).Property(Hourly.$PARAM[item_index].Outlook)) + !String.IsEmpty(Skin.String(WeatherIcons.name))</visible>
+		</item>
+		<item>
+			<label>$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Time)]</label>
+			<label2>$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Temperature)] ∙ $INFO[Window(weather).Property(Hourly.$PARAM[item_index].Precipitation)]</label2>
+			<property name="Temperature">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Temperature)]</property>
+			<property name="Outlook">$INFO[Window(weather).Property(Hourly.$PARAM[item_id].Outlook)]</property>
+			<property name="Cloudiness">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Cloudiness)]</property>
+			<property name="ShortDate">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].LongDate)]</property>
+			<property name="FanartCode">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].FanartCode)]</property>
+			<thumb>$INFO[Skin.String(WeatherIcons.path)]$INFO[Window(weather).Property(Hourly.$PARAM[item_index].FanartCode)]$INFO[Skin.String(WeatherIcons.multi)]</thumb>
+			<visible>[String.IsEqual(Skin.String(WeatherIcons.name),Weather Icons - HD Animated) | String.IsEqual(Skin.String(WeatherIcons.name),Weather Icons - Cloud Animated) | String.IsEqual(Skin.String(WeatherIcons.name),Weather Icons - Animated)] + !String.IsEmpty(Window(weather).Property(Hourly.$PARAM[item_index].Outlook)) + !String.IsEmpty(Skin.String(WeatherIcons.name))</visible>
 		</item>
 	</include>
 	<include name="WeatherDailyItem">
 		<item>
-			<label>$INFO[Window(weather).Property(Daily.$PARAM[item_index].ShortDay)]</label>
+			<label>$INFO[Window(weather).Property(Daily.$PARAM[item_index].LongDay)]</label>
 			<label2>[COLOR blue]$INFO[Window(weather).Property(Daily.$PARAM[item_index].LowTemperature)][/COLOR] ∙ [COLOR red]$INFO[Window(weather).Property(Daily.$PARAM[item_index].HighTemperature)][/COLOR]</label2>
 			<property name="LongDay">$INFO[Window(weather).Property(Daily.$PARAM[item_index].LongDay)]</property>
 			<property name="TempDay">$INFO[Window(weather).Property(Daily.$PARAM[item_index].TempDay)]</property>
 			<property name="Cloudiness">$INFO[Window(weather).Property(Daily.$PARAM[item_index].Cloudiness)]</property>
 			<property name="Outlook">$INFO[Window(weather).Property(Daily.$PARAM[item_index].Outlook)]</property>
-			<property name="ShortDate">$INFO[Window(weather).Property(Daily.$PARAM[item_index].ShortDate)]</property>
+			<property name="ShortDate">$INFO[Window(weather).Property(Daily.$PARAM[item_index].LongDate)]</property>
 			<property name="FanartCode">$INFO[Window(weather).Property(Daily.$PARAM[item_index].FanartCode)]</property>
 			<thumb>resource://resource.images.weathericons.default/$INFO[Window(weather).Property(Daily.$PARAM[item_index].OutlookIcon)]</thumb>
-			<onclick>noop</onclick>
-			<visible>!String.IsEmpty(Window(weather).Property(Daily.$PARAM[item_index].Outlook))</visible>
+			<visible>!String.IsEmpty(Window(weather).Property(Daily.$PARAM[item_index].Outlook)) + !String.IsEmpty(Window(weather).Property(Daily.$PARAM[item_index].FanartCode)) + String.IsEmpty(Skin.String(WeatherIcons.name))</visible>
+		</item>
+		<item>
+			<label>$INFO[Window(weather).Property(Daily.$PARAM[item_index].LongDay)]</label>
+			<label2>[COLOR blue]$INFO[Window(weather).Property(Daily.$PARAM[item_index].LowTemperature)][/COLOR] ∙ [COLOR red]$INFO[Window(weather).Property(Daily.$PARAM[item_index].HighTemperature)][/COLOR]</label2>
+			<property name="LongDay">$INFO[Window(weather).Property(Daily.$PARAM[item_index].LongDay)]</property>
+			<property name="TempDay">$INFO[Window(weather).Property(Daily.$PARAM[item_index].TempDay)]</property>
+			<property name="Cloudiness">$INFO[Window(weather).Property(Daily.$PARAM[item_index].Cloudiness)]</property>
+			<property name="Outlook">$INFO[Window(weather).Property(Daily.$PARAM[item_index].Outlook)]</property>
+			<property name="ShortDate">$INFO[Window(weather).Property(Daily.$PARAM[item_index].LongDate)]</property>
+			<property name="FanartCode">$INFO[Window(weather).Property(Daily.$PARAM[item_index].FanartCode)]</property>
+			<thumb>$INFO[Skin.String(WeatherIcons.path)]$INFO[Window(weather).Property(Daily.$PARAM[item_index].OutlookIcon)]</thumb>
+			<visible>![String.IsEqual(Skin.String(WeatherIcons.name),Weather Icons - HD Animated) | String.IsEqual(Skin.String(WeatherIcons.name),Weather Icons - Cloud Animated) | String.IsEqual(Skin.String(WeatherIcons.name),Weather Icons - Animated)] + !String.IsEmpty(Window(weather).Property(Daily.$PARAM[item_index].Outlook)) + !String.IsEmpty(Skin.String(WeatherIcons.name))</visible>
+		</item>
+		<item>
+			<label>$INFO[Window(weather).Property(Daily.$PARAM[item_index].LongDay)]</label>
+			<label2>[COLOR blue]$INFO[Window(weather).Property(Daily.$PARAM[item_index].LowTemperature)][/COLOR] ∙ [COLOR red]$INFO[Window(weather).Property(Daily.$PARAM[item_index].HighTemperature)][/COLOR]</label2>
+			<property name="LongDay">$INFO[Window(weather).Property(Daily.$PARAM[item_index].LongDay)]</property>
+			<property name="TempDay">$INFO[Window(weather).Property(Daily.$PARAM[item_index].TempDay)]</property>
+			<property name="Cloudiness">$INFO[Window(weather).Property(Daily.$PARAM[item_index].Cloudiness)]</property>
+			<property name="Outlook">$INFO[Window(weather).Property(Daily.$PARAM[item_index].Outlook)]</property>
+			<property name="ShortDate">$INFO[Window(weather).Property(Daily.$PARAM[item_index].LongDate)]</property>
+			<property name="FanartCode">$INFO[Window(weather).Property(Daily.$PARAM[item_index].FanartCode)]</property>
+			<thumb>$INFO[Skin.String(WeatherIcons.path)]$INFO[Window(weather).Property(Daily.$PARAM[item_index].FanartCode)]$INFO[Skin.String(WeatherIcons.multi)]</thumb>
+			<visible>[String.IsEqual(Skin.String(WeatherIcons.name),Weather Icons - HD Animated) | String.IsEqual(Skin.String(WeatherIcons.name),Weather Icons - Cloud Animated) | String.IsEqual(Skin.String(WeatherIcons.name),Weather Icons - Animated)] + !String.IsEmpty(Window(weather).Property(Daily.$PARAM[item_index].FanartCode)) + !String.IsEmpty(Skin.String(WeatherIcons.name))</visible>
 		</item>
 	</include>
 	<include name="WeatherMapItem">
@@ -1180,7 +979,7 @@
 	<include name="WidgetListCommon">
 		<scrolltime tween="cubic" easing="out">500</scrolltime>
 		<orientation>horizontal</orientation>
-    <onleft>9000</onleft>
+		<onleft>9000</onleft>
 		<onright>noop</onright>
 		<onunfocus>SetProperty(listposition,$INFO[Container($PARAM[list_id]).Position],home)</onunfocus>
 		<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
