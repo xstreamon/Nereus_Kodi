@@ -56,6 +56,7 @@
 				<onright>50</onright>
 				<ondown>14100</ondown>
 				<onback>50</onback>
+				<defaultcontrol always="true">6054</defaultcontrol>
 				<control type="group" id="60520">
 					<height>50</height>
 					<control type="label">

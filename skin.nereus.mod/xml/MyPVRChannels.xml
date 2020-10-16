@@ -8,9 +8,6 @@
 		<include>DefaultBackground</include>
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
-      <animation type="Conditional" condition="$EXP[sidebar_visible]" reversible="true">
-        <effect type="slide" start="0" end="520" time="600" tween="sine" easing="out" />
-      </animation>
 			<control type="group">
 				<include>OpenClose_Left</include>
 				<control type="fixedlist" id="50">
@@ -96,14 +93,6 @@
 						</control>
 					</focusedlayout>
 					<itemlayout height="90">
-            <!--control type="image">
-              <left>0</left>
-              <top>2</top>
-              <right>0</right>
-              <bottom>2</bottom>
-              <texture colordiffuse="26FFFFFF">lists/focus.png</texture>
-              <visible>!Control.hasNoFocus(50)</visible>
-            </control-->
 						<control type="image">
 							<left>130</left>
 							<top>10</top>
