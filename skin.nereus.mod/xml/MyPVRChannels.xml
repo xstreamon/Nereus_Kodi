@@ -44,10 +44,10 @@
 							<texture>$INFO[listitem.icon]</texture>
 						</control>
 						<control type="progress">
-							<left>315</left>
-							<top>58</top>
+							<left>270</left>
+							<top>68</top>
 							<width>50</width>
-							<height>12</height>
+							<height>15</height>
 							<midtexture border="3">progress/texturebg_white.png</midtexture>
 							<visible>ListItem.HasEpg</visible>
 							<info>ListItem.Progress</info>
@@ -60,10 +60,10 @@
 							<texture>$VAR[PVRStatusImageVar]</texture>
 						</control>
 						<control type="label">
-							<left>315</left>
+							<left>270</left>
 							<top>0</top>
 							<height>90</height>
-							<right>120</right>
+							<right>10</right>
 							<aligny>top</aligny>
 							<font>font45</font>
 							<animation effect="slide" start="0,0" end="0,14" time="0" condition="String.IsEmpty(ListItem.Title)">Conditional</animation>
@@ -71,10 +71,10 @@
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 						<control type="label">
-							<left>375</left>
+							<left>330</left>
 							<top>42</top>
 							<height>90</height>
-							<right>120</right>
+							<right>10</right>
 							<aligny>top</aligny>
 							<font>font37</font>
 							<label>$INFO[ListItem.Title]</label>
@@ -102,10 +102,10 @@
 							<texture>$INFO[listitem.icon]</texture>
 						</control>
 						<control type="progress">
-							<left>315</left>
-							<top>58</top>
+							<left>270</left>
+							<top>68</top>
 							<width>50</width>
-							<height>12</height>
+							<height>15</height>
 							<colordiffuse>88FFFFFF</colordiffuse>
 							<visible>ListItem.HasEpg</visible>
 							<info>ListItem.Progress</info>
@@ -118,10 +118,10 @@
 							<texture>$VAR[PVRStatusImageVar]</texture>
 						</control>
 						<control type="label">
-							<left>315</left>
+							<left>270</left>
 							<top>0</top>
 							<height>90</height>
-							<right>120</right>
+							<right>10</right>
 							<aligny>top</aligny>
 							<font>font45</font>
 							<label>$INFO[ListItem.Label]</label>
@@ -129,10 +129,10 @@
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 						<control type="label">
-							<left>375</left>
+							<left>330</left>
 							<top>42</top>
 							<height>90</height>
-							<right>120</right>
+							<right>10</right>
 							<aligny>top</aligny>
 							<font>font37</font>
 							<label>$INFO[ListItem.Title]</label>

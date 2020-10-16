@@ -1238,7 +1238,7 @@
 							<param name="show_weather" value="Skin.HasSetting(slot12_show_weather) | !$EXP[HasMenuSlot12]" />
 							<param name="show_kids" value="Skin.HasSetting(slot12_show_kids)" />
 						</include>
-						<include content="HomeMenuItem" condition="!Skin.HasSetting(slot13_show_none)">
+<!--						<include content="HomeMenuItem" condition="!Skin.HasSetting(slot13_show_none)">
 							<param name="show_movies" value="Skin.HasSetting(slot13_show_movies)" />
 							<param name="show_tvshows" value="Skin.HasSetting(slot13_show_tvshows)" />
 							<param name="show_music" value="Skin.HasSetting(slot13_show_music)" />
@@ -1252,7 +1252,7 @@
 							<param name="show_favorites" value="Skin.HasSetting(slot13_show_favorites)" />
 							<param name="show_weather" value="Skin.HasSetting(slot13_show_weather)" />
 							<param name="show_kids" value="Skin.HasSetting(slot13_show_kids) | !$EXP[HasMenuSlot13]" />
-						</include>
+						</include>-->
 						<item>
 							<label>$LOCALIZE[427]</label>
 							<onclick>PlayDisc</onclick>
