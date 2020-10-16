@@ -35,7 +35,8 @@
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<control type="group" id="2000">
-				<left>262</left>
+				<animation effect="slide" end="300,0" time="400" tween="sine" easing="inout" condition="Control.HasFocus(9000)">Conditional</animation>
+				<right>-100</right>
 				<animation type="Conditional" condition="Control.IsVisible(20000)" reversible="false">
 					<effect type="slide" end="0,20" time="60" tween="sine" />
 					<effect type="slide" end="0,-20" time="180" tween="sine" delay="80" />
