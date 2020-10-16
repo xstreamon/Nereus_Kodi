@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+	<variable name="OSDSubLabelPVRVar">
+		<value condition="Integer.IsLessOrEqual(VideoPlayer.Season,9) + Integer.IsLessOrEqual(VideoPlayer.Episode,9)">$INFO[VideoPlayer.Season,[COLOR button_focus]S0,[/COLOR]]$INFO[VideoPlayer.Episode,[COLOR button_focus]E0, : [/COLOR]]$INFO[VideoPlayer.EpisodeName]</value> 
+		<value condition="Integer.IsLessOrEqual(VideoPlayer.Season,9)">$INFO[VideoPlayer.Season,[COLOR button_focus]S0,[/COLOR]]$INFO[VideoPlayer.Episode,[COLOR button_focus]E, : [/COLOR]]$INFO[VideoPlayer.EpisodeName]</value> 
+		<value condition="Integer.IsLessOrEqual(VideoPlayer.Episode,9)">$INFO[VideoPlayer.Season,[COLOR button_focus]S,[/COLOR]]$INFO[VideoPlayer.Episode,[COLOR button_focus]E0, : [/COLOR]]$INFO[VideoPlayer.EpisodeName]</value> 
+		<value>$INFO[VideoPlayer.Season,[COLOR button_focus]S,[/COLOR]]$INFO[VideoPlayer.Episode,[COLOR button_focus]E, : [/COLOR]]$INFO[VideoPlayer.EpisodeName]</value>
+	</variable>
 	<variable name="BackgroundOverlayTypeVar">
 		<value condition="String.IsEqual(Skin.String(background_overlay),0)">$LOCALIZE[231]</value>
 		<value>$INFO[Skin.String(background_overlay),$LOCALIZE[467] ]</value>
