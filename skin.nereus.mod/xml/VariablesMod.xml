@@ -258,7 +258,7 @@
 		<value condition="Skin.HasSetting(slot12_show_kids)">$LOCALIZE[30343]</value>
 		<value>$LOCALIZE[8]</value>
 	</variable>
-	<variable name="s13Label2Var">
+	<variable name="HomeMenuSlot13Label2Var">
 		<value condition="Skin.HasSetting(slot13_show_none)">$LOCALIZE[351]</value>
 		<value condition="Skin.HasSetting(slot13_show_movies)">$LOCALIZE[342]</value>
 		<value condition="Skin.HasSetting(slot13_show_tvshows)">$LOCALIZE[20343]</value>
