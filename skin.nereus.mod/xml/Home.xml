@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol>9000</defaultcontrol>
-	<include condition="!String.IsEqual(Skin.String(skin_version),1.1.11)">LoadDefaultConfig</include>
 	<onload>SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onload>
 	<backgroundcolor>background</backgroundcolor>
 	<controls>
